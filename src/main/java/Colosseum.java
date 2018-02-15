@@ -73,6 +73,9 @@ public class Colosseum {
      */
     public static Pokemon buildPokemon() {
         Pokemon tempPokemon = new Pokemon();
+        tempPokemon.hitPoints = MAX_HIT_POINTS;
+        tempPokemon.attackLevel = MAX_HIT_POINTS - (int) (Math.random() * 50);
+        tempPokemon.defenseLevel = MAX_HIT_POINTS - (int) (Math.random() * 3);
         return tempPokemon;
     }
 
@@ -90,7 +93,16 @@ public class Colosseum {
      * Implement this function.
      */
     public static void printWhoIsAhead() {
-        System.out.println("Implement me!");
+        if (firstPokemon.hitPoints > secondPokemon.hitPoints) {
+            System.out.println(firstPokemon + "is currently ahead");
+        }
+        else if (firstPokemon.hitPoints < secondPokemon.hitPoints) {
+            System.out.println(secondPokemon + "is currently ahead");
+        }
+        else if (firstPokemon.hitPoints == secondPokemon.hitPoints) {
+            System.out.println("It is currently tied");
+        }
+        //System.out.println("Implement me!");
     }
 
     /**
@@ -100,8 +112,15 @@ public class Colosseum {
      * <p>
      * Write this function.
      */
+
     public static void determineWinner() {
-        System.out.println("Implement me!");
+        if (firstPokemon.hitPoints == 0) {
+            System.out.println(secondPokemon + "is the winner");
+        }
+        else if (secondPokemon.hitPoints == 0) {
+            System.out.println(firstPokemon + "is the winner");
+        }
+        //System.out.println("Implement me!");
     }
 
     /**
@@ -113,14 +132,14 @@ public class Colosseum {
         System.out.println("Player 1, build your Pokemon!");
         System.out.println("=================");
         firstPokemon = buildPokemon();
-        firstPokemon.name = "Chuchu";
+        //firstPokemon.name = "Chuchu";
 
         System.out.println("");
 
         System.out.println("Player 2, build your Pokemon!");
         System.out.println("==================");
         secondPokemon = buildPokemon();
-        secondPokemon.name = "Xyz";
+        //secondPokemon.name = "Xyz";
     }
 
     /**
